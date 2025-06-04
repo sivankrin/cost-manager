@@ -1,0 +1,35 @@
+http://localhost:3000
+
+testing getting the about
+-------------------------
+url=http://localhost:3000/api/about/
+data.status_code=200
+b'[{"first_name":"Sivan","last_name":"Kringel"},{"first_name":"Shiran","last_name":"Aharoni"}]'
+data.text=[{"first_name":"Sivan","last_name":"Kringel"},{"first_name":"Shiran","last_name":"Aharoni"}]
+[{'first_name': 'Sivan', 'last_name': 'Kringel'}, {'first_name': 'Shiran', 'last_name': 'Aharoni'}]
+
+
+testing getting the report - 1
+------------------------------
+url=http://localhost:3000/api/report/?id=123123&year=2025&month=6
+data.status_code=200
+b'{"userid":123123,"year":2025,"month":6,"costs":[{"food":[{"sum":8,"description":"milk 9","day":4},{"sum":12,"description":"choco","day":4},{"sum":8,"description":"milk 9","day":4},{"sum":8,"description":"milk 9","day":4}]},{"education":[]},{"health":[]},{"housing":[]},{"sport":[]}]}'
+data.text={"userid":123123,"year":2025,"month":6,"costs":[{"food":[{"sum":8,"description":"milk 9","day":4},{"sum":12,"description":"choco","day":4},{"sum":8,"description":"milk 9","day":4},{"sum":8,"description":"milk 9","day":4}]},{"education":[]},{"health":[]},{"housing":[]},{"sport":[]}]}
+
+
+
+testing adding cost item
+----------------------------------
+url=http://localhost:3000/api/add/
+data.status_code=201
+b'{"description":"milk 9","category":"food","userid":123123,"sum":8,"createdAt":"2025-06-04T12:25:20.957Z","_id":"68403b30793d4780d320609d","__v":0}'
+
+
+testing getting the report - 2
+------------------------------
+url=http://localhost:3000/api/report/?id=123123&year=2025&month=6
+data.status_code=200
+b'{"userid":123123,"year":2025,"month":6,"costs":[{"food":[{"sum":8,"description":"milk 9","day":4},{"sum":12,"description":"choco","day":4},{"sum":8,"description":"milk 9","day":4},{"sum":8,"description":"milk 9","day":4},{"sum":8,"description":"milk 9","day":4}]},{"education":[]},{"health":[]},{"housing":[]},{"sport":[]}]}'
+data.text={"userid":123123,"year":2025,"month":6,"costs":[{"food":[{"sum":8,"description":"milk 9","day":4},{"sum":12,"description":"choco","day":4},{"sum":8,"description":"milk 9","day":4},{"sum":8,"description":"milk 9","day":4},{"sum":8,"description":"milk 9","day":4}]},{"education":[]},{"health":[]},{"housing":[]},{"sport":[]}]}
+
+
