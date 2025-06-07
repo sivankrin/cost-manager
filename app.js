@@ -39,7 +39,7 @@ const PORT = process.env.PORT || 3000;
  * On successful connection, start the server.
  * On failure, log the error.
  */
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log('Connected to MongoDB');
         app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
